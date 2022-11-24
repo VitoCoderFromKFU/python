@@ -1,7 +1,7 @@
 package arrays;
 
 public class longerOfOne {
-
+//test
 
     public static void main(String[] args) {
         int a[] = new int[]{0, 1, 1, 1, 1, 5, 6, 1, 7, 5, 4, 7, 1, 0, 1, 5, 7, 2, 3, 5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
