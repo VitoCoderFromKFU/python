@@ -1,16 +1,15 @@
 package byteIO;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 
 public class Task {
     public static void main(String[] args) throws IOException {
         byte[] buffer;
         FileInputStream fileInputStream;
-        FileOutputStream fileOutputStream;
+        PrintWriter writerOutput;
+
         try {
-            fileInputStream = new FileInputStream("E:\\5 semestr\\5-semestr\\JavaTechnology\\src\\byteIO\\inputTask1.txt");
+            fileInputStream = new FileInputStream("E:\\git\\5 semestr\\5-semestr\\JavaTechnology\\src\\byteIO\\inputTask1.txt");
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
             throw new IOException(ex);
@@ -19,7 +18,7 @@ public class Task {
         fileInputStream.read(buffer, 0, buffer.length);
 
         try {
-            fileOutputStream = new FileOutputStream("E:\\5 semestr\\5-semestr\\JavaTechnology\\src\\byteIO\\outputTask1.txt");
+            writerOutput = new PrintWriter("E:\\git\\5 semestr\\5-semestr\\JavaTechnology\\src\\byteIO\\outputTask1.txt");
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
             throw new IOException(ex);
@@ -52,10 +51,10 @@ public class Task {
                 }
             }
         }
-
         for (int i = 0; i < n; i++) {
-            fileOutputStream.write(buffer[i]);
             System.out.print(buffer[i] + " ");
+            writerOutput.print(buffer[i]);
+            writerOutput.print(" ");
         }
 
         try {
@@ -64,12 +63,7 @@ public class Task {
             System.out.println(ex.getMessage());
             throw new IOException(ex);
         }
-        try {
-            fileOutputStream.close();
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-            throw new IOException(ex);
-        }
+        writerOutput.close();
 
     }
 
