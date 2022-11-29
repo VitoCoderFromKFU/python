@@ -1,6 +1,6 @@
 package DataBaseApp;
 
-import DataBaseApp.Controllers.PK.Availability_products_in_storagePK;
+import DataBaseApp.PK.Availability_products_in_storagePK;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.IdClass;

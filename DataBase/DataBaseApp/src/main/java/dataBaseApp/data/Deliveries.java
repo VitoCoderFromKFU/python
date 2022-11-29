@@ -1,6 +1,6 @@
 package DataBaseApp;
 
-import DataBaseApp.Controllers.PK.DeliveriesPK;
+import DataBaseApp.PK.DeliveriesPK;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.Check;
