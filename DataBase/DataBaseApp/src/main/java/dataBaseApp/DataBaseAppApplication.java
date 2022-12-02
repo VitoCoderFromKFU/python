@@ -1,4 +1,4 @@
-package dataBaseApp.data;
+package dataBaseApp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,5 +9,6 @@ public class DataBaseAppApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(DataBaseAppApplication.class, args);
 	}
+
 
 }

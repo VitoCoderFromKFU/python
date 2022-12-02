@@ -1,4 +1,4 @@
-package DataBaseApp;
+package dataBaseApp;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

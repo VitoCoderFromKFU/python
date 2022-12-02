@@ -1,8 +1,12 @@
-package DataBaseApp.Repositories;
+package dataBaseApp.repositories;
 
-import DataBaseApp.Deliveries;
+import dataBaseApp.data.Deliveries;
+import dataBaseApp.pk.DeliveriesPK;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-public interface DeliveriesRepository extends CrudRepository<Deliveries,Long> {
+@Repository
+public interface DeliveriesRepository extends JpaRepository<Deliveries, DeliveriesPK> {
 
 }

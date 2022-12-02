@@ -1,41 +1,69 @@
-package DataBaseApp;
+package dataBaseApp.data;
 
-import DataBaseApp.PK.DeliveriesPK;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import dataBaseApp.data.Accounting_deliveries;
+import dataBaseApp.pk.DeliveriesPK;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.Check;
 import org.hibernate.annotations.ColumnDefault;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@IdClass(DeliveriesPK.class)
 @Entity
-@Check(constraints = "start_date>end_date AND plan_delivery > 0 AND id_product IS NOT NULL")
-
+//@Check(constraints = "start_date>end_date AND plan_delivery > 0 AND id_product IS NOT NULL")
+@IdClass(DeliveriesPK.class)
+@Table(name = "deliveries")
+@Data
 public class Deliveries {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(nullable = false)
+    private Long id_contract;
+    @Id
+    //@Column(insertable=false, updatable=false)
+    private Long id_product;
+    /*
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_contract;
     @Id
     private Long id_product;
-    @ColumnDefault("items")
+
+     */
+    //@Column(columnDefinition = "varchar(25) default items")
     private String unit;
 
-    private Date start_date;
+    private LocalDate start_date;
 
-    private Date end_date;
+    private LocalDate end_date;
 
     private Integer plan_delivery;
 
     private Double price_unit;
+    /*
+    @JoinColumns({
+        @JoinColumn(name = "id_contract"),
+        @JoinColumn(name = "id_product")
+    })
 
-    @OneToMany
-    private List<Accounting_deliveries> accounting_deliveries;
+     */
+    @JsonIgnore
+    @OneToMany(mappedBy = "deliveries")
+    public List<Accounting_deliveries> accounting_deliveries;
 
+
+
+    public DeliveriesPK getId() {
+        return new DeliveriesPK(id_contract, id_product);
+    }
+
+    public void setId(DeliveriesPK deliveriesPK) {
+        this.id_contract = deliveriesPK.getId_contract();
+        this.id_product = deliveriesPK.getId_product();
+    }
+/*
     public Long getId_contract() {
         return id_contract;
     }
@@ -44,56 +72,27 @@ public class Deliveries {
         return id_product;
     }
 
-    public Date getStart_date() {
+    public LocalLocalDate getStart_date() {
         return start_date;
     }
 
-    public Date getEnd_date() {
-        return end_date;
+ */
+
+
+/*
+    @Override
+    public String toString() {
+        return "Deliveries{" +
+                "id_contract=" + id_contract +
+                ", id_product=" + id_product +
+                ", unit='" + unit + '\'' +
+                ", start_date=" + start_date +
+                ", end_date=" + end_date +
+                ", plan_delivery=" + plan_delivery +
+                ", price_unit=" + price_unit +
+                "}\n";
     }
 
-    public Integer getPlan_delivery() {
-        return plan_delivery;
-    }
-
-    public Double getPrice_unit() {
-        return price_unit;
-    }
-
-    public List<Accounting_deliveries> getAccounting_deliveries() {
-        return accounting_deliveries;
-    }
-
-    public void setEnd_date(Date end_date) {
-        this.end_date = end_date;
-    }
-
-    public void setId_product(Long id_product) {
-        this.id_product = id_product;
-    }
-
-    public void setAccounting_deliveries(List<Accounting_deliveries> accounting_deliveries) {
-        this.accounting_deliveries = accounting_deliveries;
-    }
-
-    public void setPlan_delivery(Integer plan_delivery) {
-        this.plan_delivery = plan_delivery;
-    }
-
-    public void setPrice_unit(Double price_unit) {
-        this.price_unit = price_unit;
-    }
-
-    public void setUnit(String unit) {
-        this.unit = unit;
-    }
-
-    public void setStart_date(Date start_date) {
-        this.start_date = start_date;
-    }
-
-    public void setId_contract(Long id_contract) {
-        this.id_contract = id_contract;
-    }
+ */
 }
 

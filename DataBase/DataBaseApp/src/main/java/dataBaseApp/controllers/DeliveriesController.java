@@ -1,24 +1,25 @@
-package DataBaseApp.Controllers;
+package dataBaseApp.controllers;
 
-import DataBaseApp.Deliveries;
-import DataBaseApp.Repositories.DeliveriesRepository;
+import dataBaseApp.data.Deliveries;
+import dataBaseApp.repositories.DeliveriesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Controller
-@RequestMapping("/deliveries")
+@RequestMapping(value = "/deliveries",path = "/deliveries")
 public class DeliveriesController {
     @Autowired
     private DeliveriesRepository deliveriesRepository;
 
-    @PostMapping("/add")
-    public @ResponseBody String addNewDeliveries(@RequestParam Long id_product, String unit, Date start_date,
-                                              Date end_date,Integer plan_delivery, Double price_unit){
+    @PostMapping(value = "/add",path = "/add")
+    public @ResponseBody String addNewDeliveries(@RequestParam Long id_product, String unit, LocalDate start_date,
+                                                 LocalDate end_date, Integer plan_delivery, Double price_unit){
         Deliveries deliveries = new Deliveries();
-        deliveries.setId_product(id_product);
+        //deliveries.setId_product(id_product);
         deliveries.setUnit(unit);
         deliveries.setStart_date(start_date);
         deliveries.setEnd_date(end_date);
@@ -27,7 +28,7 @@ public class DeliveriesController {
         deliveriesRepository.save(deliveries);
         return "Saved";
     }
-    @GetMapping("/all")
+    @GetMapping(value = "/all",path = "/all")
     public @ResponseBody Iterable<Deliveries> getAllDeliveries(){
         return deliveriesRepository.findAll();
     }

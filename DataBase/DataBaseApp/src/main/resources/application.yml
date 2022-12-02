@@ -1,10 +1,10 @@
 spring:
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: validate
     show-sql: true
   datasource:
-    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/detalisbuharaev
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/detalis
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver

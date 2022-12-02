@@ -1,11 +1,12 @@
-package DataBaseApp.Controllers;
+package dataBaseApp.controllers;
 
-import DataBaseApp.Availability_products_in_storage;
-import DataBaseApp.Repositories.Availability_products_in_storageRepository;
+import dataBaseApp.data.Availability_products_in_storage;
+import dataBaseApp.repositories.Availability_products_in_storageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Controller
@@ -16,7 +17,7 @@ public class Availability_products_in_storageController {
 
     @PostMapping("/add")
     public @ResponseBody String addNewAvailabilityProductsInStorage(@RequestParam Long id_storage, @RequestParam Long id_product, String unit,
-                                                                 Integer count_in_storage, Date date_last_operation){
+                                                                    Integer count_in_storage, LocalDate date_last_operation){
         Availability_products_in_storage availabilityProductsInStorage = new Availability_products_in_storage();
         availabilityProductsInStorage.setId_storage(id_storage);
         availabilityProductsInStorage.setId_product(id_product);

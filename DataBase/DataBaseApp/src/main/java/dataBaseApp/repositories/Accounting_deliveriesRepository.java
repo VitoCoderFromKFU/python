@@ -1,8 +1,11 @@
-package DataBaseApp.Repositories;
+package dataBaseApp.repositories;
 
-import DataBaseApp.Accounting_deliveries;
+import dataBaseApp.data.Accounting_deliveries;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-public interface Accounting_deliveriesRepository extends CrudRepository<Accounting_deliveries,Long> {
+@Repository
+public interface Accounting_deliveriesRepository extends JpaRepository<Accounting_deliveries,Long> {
 
 }
