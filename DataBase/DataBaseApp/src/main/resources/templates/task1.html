@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>TASK 1</title>
+</head>
+
+<body>
+<h1>head 1</h1>
+<br>
+<h3>Head 3</h3>
+<br/>
+<table border="1">
+    <tr>
+        <td>ID storage</td>
+        <td>ID product</td>
+        <td>ID document on admission</td>
+        <td>Date of admission</td>
+        <td>Count products</td>
+        <td>ID contract</td>
+        <td>Plan delivery</td>
+        <td>End date</td>
+    </tr>
+    <tr th:each="t:${t1List}">
+        <td th:text="${t.idStorage}">ID storage</td>
+        <td th:text="${t.idProduct}">ID product</td>
+        <td th:text="${t.idDocumentOnAdmission}">ID document on admission</td>
+        <td th:text="${t.dateOfAdmission}">Date of admission</td>
+        <td th:text="${t.countProducts}">Count products</td>
+        <td th:text="${t.idContract}">ID contract</td>
+        <td th:text="${t.planDelivery}">Plan delivery</td>
+        <td th:text="${t.endDate}">End date</td>
+    </tr>
+</table>
+<a th:href="@{../tasks}">Tasks</a>
+<a th:href="@{/}">Home</a>
+</body>
+</html>

@@ -1,13 +1,13 @@
 package dataBaseApp.controllers;
 
-import dataBaseApp.data.Availability_products_in_storage;
+import com.fasterxml.jackson.databind.util.ArrayIterator;
+import dataBaseApp.dto.Availability_products_in_storageRequest;
+import dataBaseApp.entity.Availability_products_in_storage;
+import dataBaseApp.pk.Availability_products_in_storagePK;
 import dataBaseApp.repositories.Availability_products_in_storageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
-import java.time.LocalDate;
-import java.util.Date;
 
 @Controller
 @RequestMapping("/availability_products_in_storage")
@@ -15,25 +15,18 @@ public class Availability_products_in_storageController {
     @Autowired
     private Availability_products_in_storageRepository availability_products_in_storageRepository;
 
+    @CrossOrigin
     @PostMapping("/add")
-    public @ResponseBody String addNewAvailabilityProductsInStorage(@RequestParam Long id_storage, @RequestParam Long id_product, String unit,
-                                                                    Integer count_in_storage, LocalDate date_last_operation){
-        Availability_products_in_storage availabilityProductsInStorage = new Availability_products_in_storage();
-        availabilityProductsInStorage.setId_storage(id_storage);
-        availabilityProductsInStorage.setId_product(id_product);
-        availabilityProductsInStorage.setUnit(unit);
-        availabilityProductsInStorage.setCount_in_storage(count_in_storage);
-        availabilityProductsInStorage.setDate_last_operation(date_last_operation);
-        availability_products_in_storageRepository.save(availabilityProductsInStorage);
-        return "Saved";
+    public String addNewAvailabilityProductsInStorage(@RequestBody Availability_products_in_storageRequest storageRequest) {
+        Availability_products_in_storage storage = Availability_products_in_storage.fromDTO(storageRequest);
+        availability_products_in_storageRepository.save(storage);
+        return "saved";
     }
 
     @GetMapping("/all")
-    public @ResponseBody Iterable<Availability_products_in_storage> getAllAvailabilityProductsInStorage(){
+    public @ResponseBody Iterable<Availability_products_in_storage> getAllAvailabilityProductsInStorage() {
         return availability_products_in_storageRepository.findAll();
     }
-
-
 
 
 }

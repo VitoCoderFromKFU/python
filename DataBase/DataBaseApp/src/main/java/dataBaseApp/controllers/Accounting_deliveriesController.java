@@ -1,13 +1,17 @@
 package dataBaseApp.controllers;
 
-import dataBaseApp.data.Accounting_deliveries;
+import dataBaseApp.dto.Accounting_deliveriesRequest;
+import dataBaseApp.entity.Accounting_deliveries;
+import dataBaseApp.entity.Availability_products_in_storage;
+import dataBaseApp.entity.Deliveries;
 import dataBaseApp.repositories.Accounting_deliveriesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
-import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
 
 @Controller
 @RequestMapping("/accounting-deliveries")
@@ -15,19 +19,19 @@ public class Accounting_deliveriesController {
     @Autowired
     private Accounting_deliveriesRepository accountingDeliveriesRepository;
 
+    @CrossOrigin//to work with postman
     @PostMapping("/add")
-    public @ResponseBody String addNewAccountingDeliveries(@RequestParam Long id_contract, @RequestParam Long id_product,
-                                                           String unit, Integer count_products, LocalDate date_of_admission){
-        Accounting_deliveries accountingDeliveries = new Accounting_deliveries();
-        //accountingDeliveries.setId_contract(id_contract);
-        //accountingDeliveries.setId_product(id_product);
-        accountingDeliveries.setUnit(unit);
-        accountingDeliveries.setCount_products(count_products);
-        accountingDeliveries.setDate_of_admission(date_of_admission);
-        return "Saved";
+    public String addNewAccountingDeliveries(@RequestBody final Accounting_deliveriesRequest accountingDeliveriesRequest) {
+        Accounting_deliveries accountingDeliveries = Accounting_deliveries.fromDTO(accountingDeliveriesRequest);
+        accountingDeliveriesRepository.save(accountingDeliveries);
+        return "saved";
+
     }
+
+    @CrossOrigin
     @GetMapping("/all")
-    public @ResponseBody Iterable<Accounting_deliveries> getAllAccountingDeliveries(){
+    public @ResponseBody Iterable<Accounting_deliveries> getAllAccountingDeliveries() {
         return accountingDeliveriesRepository.findAll();
     }
+
 }

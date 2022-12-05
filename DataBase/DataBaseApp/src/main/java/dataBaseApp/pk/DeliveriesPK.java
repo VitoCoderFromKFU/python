@@ -1,14 +1,16 @@
 package dataBaseApp.pk;
 
 import jakarta.persistence.Entity;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Data
+import java.io.Serializable;
+
+@Setter
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class DeliveriesPK {
-    private Long id_contract;
-    private Long id_product;
+@EqualsAndHashCode
+public class DeliveriesPK implements Serializable {
+    private Long idContract;
+    private Long idProduct;
 }

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>TASK 3</title>
+</head>
+
+<body>
+<h1>head 1</h1>
+<br>
+<h3>Head 3</h3>
+<br/>
+<table border="1">
+    <tr>
+        <td>ID storage</td>
+        <td>ID product</td>
+        <td>unit</td>
+        <td>Count in storage</td>
+        <td>Date last operation</td>
+    </tr>
+    <tr th:each="t:${task3List}">
+        <td th:text="${t.idStorage}">ID storage</td>
+        <td th:text="${t.idProduct}">ID product</td>
+        <td th:text="${t.unit}">unit</td>
+        <td th:text="${t.countInStorage}">Count in storage</td>
+        <td th:text="${t.dateLastOperation}">Date last operation</td>
+    </tr>
+</table>
+<a th:href="@{../tasks}">Tasks</a>
+<a th:href="@{/}">Home</a>
+</body>
+</html>

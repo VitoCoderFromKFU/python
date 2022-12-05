@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>TASK 2</title>
+</head>
+
+<body>
+<h1>head 1</h1>
+<br>
+<h3>Head 3</h3>
+<br/>
+<table border="1">
+    <tr>
+        <td>ID contract</td>
+        <td>ID product</td>
+        <td>Plan delivery</td>
+        <td>End date</td>
+        <td>general count this detail in this contract</td>
+    </tr>
+    <tr th:each="t:${task2List}">
+        <td th:text="${t.idContract}">ID contract</td>
+        <td th:text="${t.idProduct}">ID product</td>
+        <td th:text="${t.planDelivery}">Plan delivery</td>
+        <td th:text="${t.endDate}">End date</td>
+        <td th:text="${t.sum}">General count this detail in this contract</td>
+    </tr>
+</table>
+<a th:href="@{../tasks}">Tasks</a>
+<a th:href="@{/}">Home</a>
+</body>
+</html>
