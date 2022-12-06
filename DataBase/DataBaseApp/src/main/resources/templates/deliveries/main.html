@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
+<head>
     <meta charset="UTF-8">
-    <title>TASKS</title>
+    <title>Title</title>
 </head>
 <body>
-<a th:href="@{tasks/task1}">Task 1</a>
-<a th:href="@{tasks/task2}">Task 2</a>
-<a th:href="@{tasks/task3}">Task 3</a>
+<a th:href="@{/deliveries/all}">Get all deliveries</a>
+<br/>
+<a th:href="@{/deliveries/add}">Add  delivery</a>
+<br/>
 </body>
 </html>

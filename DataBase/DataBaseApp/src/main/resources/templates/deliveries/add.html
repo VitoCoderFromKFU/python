@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add delivery</title>
+</head>
+<body>
+<!--check th:action-->
+<form th:method="POST" th:action="@{/deliveries}" th:object="${delivery}">
+    <label for ="idProduct">Enter id product: </label>
+    <input type="number" th:field="*{idProduct}" id="idProduct">
+    <br/>
+    <label for ="unit">Enter unit: </label>
+    <input type="text" th:field="*{unit}" id="unit">
+    <br/>
+    <label for ="startDate">Enter start date: </label>
+    <input type="date" th:field="*{startDate}" id="startDate">
+    <br/>
+    <label for ="endDate">Enter end date: </label>
+    <input type="date" th:field="*{endDate}" id="endDate">
+    <br/>
+    <label for ="planDelivery">Enter plan delivery: </label>
+    <input type="number" th:field="*{planDelivery}" id="planDelivery">
+    <br/>
+    <label for ="priceUnit">Enter price unit: </label>
+    <input type="number" th:field="*{priceUnit}" id="priceUnit">
+    <br/>
+    <input type="submit" value="add">
+</form>
+
+</body>
+</html>

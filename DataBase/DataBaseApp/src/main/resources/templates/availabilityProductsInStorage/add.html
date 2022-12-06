@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<!--availability_products_in_storage(id_storage, id_product, count_in_storage)-->
+<head>
+    <meta charset="UTF-8">
+    <title>Add apis</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/availabilityProductsInStorage}" th:object="${apis}">
+    <label for ="idStorage">Enter id storage: </label>
+    <input type="number" th:field="*{idStorage}" id="idStorage">
+    <br/>
+    <label for ="idProduct">Enter id product: </label>
+    <input type="number" th:field="*{idProduct}" id="idProduct">
+    <br/>
+    <label for ="countInStorage">Enter count in storage: </label>
+    <input type="number" th:field="*{countInStorage}" id="countInStorage">
+    <br/>
+    <input type="submit" value="add">
+</form>
+</body>
+</html>

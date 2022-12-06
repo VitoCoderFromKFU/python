@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All deliveries</title>
+</head>
+<body>
+<h1>head 1</h1>
+<br>
+<h3>Head 3</h3>
+<br/>
+<table border="1">
+    <tr>
+        <td>ID contract</td>
+        <td>ID product</td>
+        <td>Unit</td>
+        <td>Start date</td>
+        <td>End date</td>
+        <td>Plan delivery</td>
+        <td>Price unit</td>
+    </tr>
+    <tr th:each="d:${dList}">
+        <td th:text="${d.idContract}">ID contract</td>
+        <td th:text="${d.idProduct}">ID product</td>
+        <td th:text="${d.unit}">Unit</td>
+        <td th:text="${d.startDate}">Start date</td>
+        <td th:text="${d.endDate}">End date</td>
+        <td th:text="${d.planDelivery}">Plan delivery</td>
+        <td th:text="${d.priceUnit}">Price unit</td>
+    </tr>
+</table>
+<a th:href="@{/deliveries}">Deliveries</a>
+<a th:href="@{/}">Home</a>
+</body>
+</html>

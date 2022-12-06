@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>head 1</h1>
+<br>
+<h3>Head 3</h3>
+<br/>
+<table border="1">
+    <tr>
+        <td>ID document on admission</td>
+        <td>ID storage</td>
+        <td>ID contract</td>
+        <td>ID product</td>
+        <td>Unit</td>
+        <td>Count products</td>
+        <td>Date of admission</td>
+    </tr>
+    <tr th:each="ad:${adList}">
+        <td th:text="${ad.idDocumentOnAdmission}">ID document on admission</td>
+        <td th:text="${ad.idStorage}">ID storage</td>
+        <td th:text="${ad.idContract}">ID contract</td>
+        <td th:text="${ad.idProduct}">ID product</td>
+        <td th:text="${ad.unit}">Unit</td>
+        <td th:text="${ad.countProducts}">Count products</td>
+        <td th:text="${ad.dateOfAdmission}">Date of admission</td>
+    </tr>
+</table>
+<a th:href="@{/accountingDeliveries}">AccountingDeliveries</a>
+<a th:href="@{/}">Home</a>
+</body>
+</html>

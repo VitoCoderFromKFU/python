@@ -1,6 +1,5 @@
 package dataBaseApp.pk;
 
-import jakarta.persistence.Entity;
 import lombok.*;
 
 import java.io.Serializable;

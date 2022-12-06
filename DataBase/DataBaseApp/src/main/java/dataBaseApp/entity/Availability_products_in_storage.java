@@ -4,8 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import dataBaseApp.dto.Availability_products_in_storageRequest;
 import dataBaseApp.pk.Availability_products_in_storagePK;
 import jakarta.persistence.*;
-
 import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -28,8 +28,8 @@ public class Availability_products_in_storage {
     @Id
     @Column(name = "id_product")
     private Long idProduct;
-    //@Column(columnDefinition = "varchar(25) default items")
-    private String unit;
+    @ColumnDefault("items")
+    private String unit = "items";
 
     //@Column(columnDefinition = "int default 0")
     @Column(name = "count_in_storage")
@@ -60,7 +60,7 @@ public class Availability_products_in_storage {
         this.idProduct = storagePK.getIdProduct();
     }
 
-    public static Availability_products_in_storage fromDTO(final Availability_products_in_storageRequest storageRequest){
+    public static Availability_products_in_storage fromDTO(final Availability_products_in_storageRequest storageRequest) {
         Availability_products_in_storage storage = new Availability_products_in_storage();
         storage.setIdStorage(storageRequest.getIdStorage());
         storage.setIdProduct(storageRequest.getIdProduct());

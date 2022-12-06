@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add accounting delivery</title>
+</head>
+<!--id_storage,id_product,
+id_contract, count_products,
+ date_of_admission-->
+<body>
+<form th:method="POST" th:action="@{/accountingDeliveries}" th:object="${acDelivery}">
+    <label for ="idStorage">Enter id storage: </label>
+    <input type="number" th:field="*{idStorage}" id="idStorage">
+    <br/>
+    <label for ="idProduct">Enter id product: </label>
+    <input type="number" th:field="*{idProduct}" id="idProduct">
+    <br/>
+    <label for ="idContract">Enter id contract: </label>
+    <input type="number" th:field="*{idContract}" id="idContract">
+    <br/>
+    <label for ="countProducts">Enter count products: </label>
+    <input type="number" th:field="*{countProducts}" id="countProducts">
+    <br/>
+    <label for ="dateOfAdmission">Enter date of admission: </label>
+    <input type="date" th:field="*{dateOfAdmission}" id="dateOfAdmission">
+    <br/>
+
+    <input type="submit" value="add">
+</form>
+</body>
+</html>

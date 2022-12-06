@@ -1,8 +1,8 @@
 package dataBaseApp.repositories;
 
+import dataBaseApp.dto.ForTask1;
 import dataBaseApp.dto.ForTask2;
 import dataBaseApp.entity.Accounting_deliveries;
-import dataBaseApp.dto.ForTask1;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -14,6 +14,7 @@ public interface Accounting_deliveriesRepository extends JpaRepository<Accountin
     List<Accounting_deliveries> findByIdDocumentOnAdmission(Long id_document_on_admission);
 
     List<Accounting_deliveries> findByIdStorage(Long id_storage);
+
     List<Accounting_deliveries> findByIdContract(Long id_contract);
 
     List<Accounting_deliveries> findByIdProduct(Long id_product);

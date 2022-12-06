@@ -13,7 +13,6 @@ import java.time.LocalDate;
 @Getter
 @Setter
 public class DeliveriesRequest {
-
     private Long idProduct;
 
     private String unit;

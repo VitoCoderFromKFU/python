@@ -5,6 +5,8 @@ import dataBaseApp.dto.DeliveriesRequest;
 import dataBaseApp.pk.DeliveriesPK;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.GenericGenerator;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -21,14 +23,14 @@ import java.util.List;
 public class Deliveries {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GenericGenerator(name = " ", strategy = "increment")
     @Column(name = "id_contract")
     private Long idContract;
     @Id
     @Column(name = "id_product")
     private Long idProduct;
-
-    private String unit;
+    @ColumnDefault("items")
+    private String unit = "items";
     @Column(name = "start_date")
     private LocalDate startDate;
     @Column(name = "end_date")

@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.ColumnDefault;
 
 import java.time.LocalDate;
 
@@ -32,9 +33,8 @@ public class Accounting_deliveries {
     @Column(name = "id_product")
     private Long idProduct;
 
-    //@Column(columnDefinition = "varchar(25) default items")
-    @Column(name = "unit")
-    private String unit;
+    @ColumnDefault("items")
+    private String unit = "items";
 
     @Column(name = "count_products")
     private Integer countProducts;
@@ -60,7 +60,7 @@ public class Accounting_deliveries {
             @JoinColumn(name = "id_product", referencedColumnName = "id_product", updatable = false, insertable = false),
             @JoinColumn(name = "id_storage", referencedColumnName = "id_storage", updatable = false, insertable = false)
     })
-    @ManyToOne( fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     public Availability_products_in_storage availability_products_in_storage;
 
     @JsonIgnore
@@ -68,7 +68,7 @@ public class Accounting_deliveries {
             @JoinColumn(name = "id_contract", referencedColumnName = "id_contract", updatable = false, insertable = false),
             @JoinColumn(name = "id_product", referencedColumnName = "id_product", updatable = false, insertable = false)
     })
-    @ManyToOne( fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     public Deliveries deliveries;
 
 

@@ -18,37 +18,41 @@ import java.util.List;
 @Controller
 @RequestMapping("/tasks")
 public class TasksController {
-    private Accounting_deliveriesRepository accountingDeliveriesRepository;
-    private DeliveriesRepository deliveriesRepository;
-    private Availability_products_in_storageRepository availabilityProductsInStorageRepository;
+    private final Accounting_deliveriesRepository accountingDeliveriesRepository;
+    private final DeliveriesRepository deliveriesRepository;
+    private final Availability_products_in_storageRepository availabilityProductsInStorageRepository;
+
     @Autowired
     TasksController(Accounting_deliveriesRepository accountingDeliveriesRepository,
-                    DeliveriesRepository deliveriesRepository,Availability_products_in_storageRepository availabilityProductsInStorageRepository){
-        this.accountingDeliveriesRepository=accountingDeliveriesRepository;
-        this.deliveriesRepository=deliveriesRepository;
-        this.availabilityProductsInStorageRepository=availabilityProductsInStorageRepository;
+                    DeliveriesRepository deliveriesRepository, Availability_products_in_storageRepository availabilityProductsInStorageRepository) {
+        this.accountingDeliveriesRepository = accountingDeliveriesRepository;
+        this.deliveriesRepository = deliveriesRepository;
+        this.availabilityProductsInStorageRepository = availabilityProductsInStorageRepository;
     }
+
     @GetMapping
-    public String tasks(){
-        return "tasks";
+    public String tasks() {
+        return "tasks/tasks";
     }
 
     @GetMapping("/task1")
-    public String task1(Model model){
+    public String task1(Model model) {
         List<ForTask1> task1 = accountingDeliveriesRepository.taskOne();
-        model.addAttribute("t1List",task1);
-        return "task1";
+        model.addAttribute("t1List", task1);
+        return "tasks/task1";
     }
+
     @GetMapping("/task2")
-    public String task2(Model model){
+    public String task2(Model model) {
         List<ForTask2> task2 = accountingDeliveriesRepository.taskTwo();
-        model.addAttribute("task2List",task2);
-        return "task2";
+        model.addAttribute("task2List", task2);
+        return "tasks/task2";
     }
+
     @GetMapping("/task3")
-    public String task3(Model model){
+    public String task3(Model model) {
         List<ForTask3> task3 = availabilityProductsInStorageRepository.taskThree();
-        model.addAttribute("task3List",task3);
-        return "task3";
+        model.addAttribute("task3List", task3);
+        return "tasks/task3";
     }
 }

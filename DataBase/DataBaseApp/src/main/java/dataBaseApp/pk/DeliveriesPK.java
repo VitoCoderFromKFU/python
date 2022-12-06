@@ -1,6 +1,7 @@
 package dataBaseApp.pk;
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import lombok.*;
 
 import java.io.Serializable;
@@ -11,6 +12,6 @@ import java.io.Serializable;
 @NoArgsConstructor
 @EqualsAndHashCode
 public class DeliveriesPK implements Serializable {
-    private Long idContract;
+    public Long idContract;
     private Long idProduct;
 }
