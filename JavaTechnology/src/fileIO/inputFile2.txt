@@ -1,0 +1,8 @@
+ball=шар
+i=я
+tried=попытался
+leave=покинуть
+omsk=омск
+failed=не удалось
+and=и
+from=из
