@@ -13,35 +13,32 @@ public class Translate {
         FileReader fileReader2;
         BufferedReader bufferedReader1;
         BufferedReader bufferedReader2;
-        List<String> words=new ArrayList<>();
-        Map<String,String> vocabulary = new HashMap<>();
+        List<String> words = new ArrayList<>();
+        Map<String, String> vocabulary = new HashMap<>();
 
-        try{
+        try {
             fileReader1 = new FileReader(input1);
             fileReader2 = new FileReader(input2);
             bufferedReader1 = new BufferedReader(fileReader1);
             bufferedReader2 = new BufferedReader(fileReader2);
             String temp = bufferedReader1.readLine();
-            String[]t= temp.split(" | .|: ");
+            String[] t = temp.split(" | .|: ");
             Collections.addAll(words, t);
             bufferedReader1.close();
 
-            while((temp=bufferedReader2.readLine())!=null){
-                String[]str=temp.split("=");
-                vocabulary.put(str[0],str[1]);
+            while ((temp = bufferedReader2.readLine()) != null) {
+                String[] str = temp.split("=");
+                vocabulary.put(str[0], str[1]);
             }
             bufferedReader2.close();
 
-        }
-        catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
 
         }
-        for (String s:words){
-            System.out.print(vocabulary.get(s.toLowerCase())+" ");
+        for (String s : words) {
+            System.out.print(vocabulary.get(s.toLowerCase()) + " ");
         }
         System.out.println();
-        /*System.out.println(vocabulary);
-        System.out.println(words);*/
     }
 }

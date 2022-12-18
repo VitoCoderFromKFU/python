@@ -19,7 +19,7 @@ public class TvWithButton extends JFrame implements ActionListener {
         cardPanel.setBackground(new Color(176, 107, 3));
         //cardPanel.add("Day", new JLabel("Day", JLabel.CENTER));
         JPanel buttons = new JPanel();
-        buttons.setBackground(new Color(190, 0, 0));
+        buttons.setBackground(new Color(255, 75, 0));
         buttons.setLayout(new FlowLayout(FlowLayout.CENTER));
         buttons.add(button);
         button.addActionListener(this);
@@ -41,15 +41,15 @@ public class TvWithButton extends JFrame implements ActionListener {
 
         if (e.getSource() == button) {
             if(flag){
-                //cardPanel.remove(changeImage);
+                cardPanel.remove(changeImage2);
                 cardPanel.add(changeImage1);
-                cardPanel.setBackground(new Color(255, 255, 255));
+                cardPanel.setBackground(new Color(0, 0, 0));
                 flag=false;
             }
             else{
-                //cardPanel.remove(changeImage);
+                cardPanel.remove(changeImage1);
                 cardPanel.add(changeImage2);
-                cardPanel.setBackground(new Color(0, 0, 0, 255));
+                cardPanel.setBackground(new Color(255, 255, 255, 255));
                 flag = true;
             }
 
