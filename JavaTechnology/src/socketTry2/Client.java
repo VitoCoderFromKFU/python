@@ -8,8 +8,6 @@ import java.util.*;
 public class Client {
 
     public static void main(String[] args) {
-
-
         try {
             Socket soc = new Socket(InetAddress.getLocalHost(), 8020);
 

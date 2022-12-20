@@ -26,7 +26,7 @@ public class Server {
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Error during serialization");
-            //System.exit(1);
+            System.exit(1);
         }
     }
 }
