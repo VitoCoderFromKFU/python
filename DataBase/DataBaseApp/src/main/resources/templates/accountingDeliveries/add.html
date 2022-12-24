@@ -4,29 +4,37 @@
 <head>
     <meta charset="UTF-8">
     <title>Add accounting delivery</title>
+    <link rel="stylesheet" href="../style.css">
+    <form th:action="@{/}">
+        <button class="button-73" role="button">Home</button>
+    </form>
+    <form th:action="@{/accountingDeliveries}">
+        <button class="button-73" role="button">Accounting Deliveries</button>
+    </form>
+
 </head>
 <!--id_storage,id_product,
 id_contract, count_products,
  date_of_admission-->
 <body>
-<form th:method="POST" th:action="@{/accountingDeliveries}" th:object="${acDelivery}">
-    <label for ="idStorage">Enter id storage: </label>
-    <input type="number" th:field="*{idStorage}" id="idStorage">
-    <br/>
-    <label for ="idProduct">Enter id product: </label>
-    <input type="number" th:field="*{idProduct}" id="idProduct">
-    <br/>
-    <label for ="idContract">Enter id contract: </label>
-    <input type="number" th:field="*{idContract}" id="idContract">
-    <br/>
-    <label for ="countProducts">Enter count products: </label>
-    <input type="number" th:field="*{countProducts}" id="countProducts">
-    <br/>
-    <label for ="dateOfAdmission">Enter date of admission: </label>
-    <input type="date" th:field="*{dateOfAdmission}" id="dateOfAdmission">
-    <br/>
 
-    <input type="submit" value="add">
+<form th:method="POST" th:action="@{/accountingDeliveries}" th:object="${acDelivery}">
+    <label for="idStorage">Enter id storage: </label>
+    <input type="number" th:field="*{idStorage}" id="idStorage" placeholder="Id storage">
+    <br/>
+    <label for="idProduct">Enter id product: </label>
+    <input type="number" th:field="*{idProduct}" id="idProduct" placeholder="Id product">
+    <br/>
+    <label for="idContract">Enter id contract: </label>
+    <input type="number" th:field="*{idContract}" id="idContract" placeholder="Id contract">
+    <br/>
+    <label for="countProducts">Enter count products: </label>
+    <input type="number" th:field="*{countProducts}" id="countProducts" placeholder="count products">
+    <br/>
+    <label for="dateOfAdmission">Enter date of admission: </label>
+    <input type="date" th:field="*{dateOfAdmission}" id="dateOfAdmission" placeholder="date of admission">
+    <br/>
+    <input type="submit" value="add" class="button-73">
 </form>
 </body>
 </html>

@@ -3,12 +3,20 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Deliveries</title>
+    <link rel="stylesheet" href="../style.css">
+    <form th:action="@{/}">
+        <button class="button-73" role="button">Home</button>
+    </form>
+    <form th:action="@{/deliveries/all}">
+        <button class="button-73" role="button">Get all deliveries</button>
+    </form>
+    <form th:action="@{/deliveries/add}">
+        <button class="button-73" role="button">Add  delivery</button>
+    </form>
 </head>
 <body>
-<a th:href="@{/deliveries/all}">Get all deliveries</a>
-<br/>
-<a th:href="@{/deliveries/add}">Add  delivery</a>
-<br/>
+
+
 </body>
 </html>

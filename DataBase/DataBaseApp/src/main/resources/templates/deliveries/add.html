@@ -4,30 +4,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Add delivery</title>
+    <link rel="stylesheet" href="../style.css">
+    <form th:action="@{/}">
+        <button class="button-73" role="button">Home</button>
+    </form>
+    <form th:action="@{/deliveries}">
+        <button class="button-73" role="button">Deliveries</button>
+    </form>
+
 </head>
 <body>
 <!--check th:action-->
 <form th:method="POST" th:action="@{/deliveries}" th:object="${delivery}">
     <label for ="idProduct">Enter id product: </label>
-    <input type="number" th:field="*{idProduct}" id="idProduct">
+    <input type="number" th:field="*{idProduct}" id="idProduct" placeholder="Id product">
     <br/>
     <label for ="unit">Enter unit: </label>
-    <input type="text" th:field="*{unit}" id="unit">
+    <input type="text" th:field="*{unit}" id="unit" placeholder="Unit">
     <br/>
     <label for ="startDate">Enter start date: </label>
-    <input type="date" th:field="*{startDate}" id="startDate">
+    <input type="date" th:field="*{startDate}" id="startDate" placeholder="Start date">
     <br/>
     <label for ="endDate">Enter end date: </label>
-    <input type="date" th:field="*{endDate}" id="endDate">
+    <input type="date" th:field="*{endDate}" id="endDate" placeholder="End date">
     <br/>
     <label for ="planDelivery">Enter plan delivery: </label>
-    <input type="number" th:field="*{planDelivery}" id="planDelivery">
+    <input type="number" th:field="*{planDelivery}" id="planDelivery" placeholder="Plan delivery">
     <br/>
     <label for ="priceUnit">Enter price unit: </label>
-    <input type="number" th:field="*{priceUnit}" id="priceUnit">
+    <input type="number" th:field="*{priceUnit}" id="priceUnit" placeholder="Price unit">
     <br/>
-    <input type="submit" value="add">
+    <input type="submit" value="add" class="button-73">
 </form>
+
 
 </body>
 </html>

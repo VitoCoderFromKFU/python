@@ -1,25 +1,53 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en">
 <head>
     <meta charset="UTF-8">
     <title>All deliveries</title>
+    <link rel="stylesheet" href="../style.css">
+    <form th:action="@{/}">
+        <button class="button-73" role="button">Home</button>
+    </form>
+    <form th:action="@{/deliveries}">
+        <button class="button-73" role="button">Deliveries</button>
+    </form>
+
 </head>
 <body>
-<h1>head 1</h1>
-<br>
-<h3>Head 3</h3>
-<br/>
-<table border="1">
+<h1>Deliveries</h1>
+
+
+<table class="container">
+    <thead>
     <tr>
-        <td>ID contract</td>
-        <td>ID product</td>
-        <td>Unit</td>
-        <td>Start date</td>
-        <td>End date</td>
-        <td>Plan delivery</td>
-        <td>Price unit</td>
+
+        <th>
+            <h1>ID contract</h1>
+        </th>
+        <th>
+            <h1>ID product</h1>
+        </th>
+        <th>
+            <h1>Unit</h1>
+        </th>
+        <th>
+            <h1>Start date</h1>
+        </th>
+        <th>
+            <h1>End date</h1>
+        </th>
+        <th>
+            <h1>Plan delivery</h1>
+        </th>
+        <th>
+            <h1>Price unit</h1>
+        </th>
+
     </tr>
+
+
+    </thead>
     <tr th:each="d:${dList}">
         <td th:text="${d.idContract}">ID contract</td>
         <td th:text="${d.idProduct}">ID product</td>
@@ -30,7 +58,7 @@
         <td th:text="${d.priceUnit}">Price unit</td>
     </tr>
 </table>
-<a th:href="@{/deliveries}">Deliveries</a>
-<a th:href="@{/}">Home</a>
+
+
 </body>
 </html>

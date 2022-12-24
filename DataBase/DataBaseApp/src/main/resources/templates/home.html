@@ -3,17 +3,22 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="ISO-8859-1">
-    <title>HOME</title>
-
-</head>
+    <title>Home</title>
+    <link rel="stylesheet" href="../style.css">
+    <form th:action="@{tasks}">
+        <button class="button-73" role="button">Tasks</button>
+    </form>
+    <form th:action="@{/deliveries}">
+        <button class="button-73" role="button">Deliveries</button>
+    </form>
+    <form th:action="@{/availabilityProductsInStorage}">
+        <button class="button-73" role="button">Availability products in storage</button>
+    </form>
+    <form th:action="@{/accountingDeliveries}">
+        <button class="button-73" role="button">Accounting deliveries</button>
+    </form>
 <body>
-<a th:href="@{/tasks}">Tasks</a>
-<br />
-<a th:href="@{/deliveries}">Deliveries</a>
-<br />
-<a th:href="@{/availabilityProductsInStorage}">Availability products in storage</a>
-<br />
-<a th:href="@{/accountingDeliveries}">Accounting deliveries</a>
-<br />
+
+
 </body>
 </html>

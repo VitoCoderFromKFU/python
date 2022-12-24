@@ -14,14 +14,12 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-//@Check(constraints = "start_date>end_date AND plan_delivery > 0 AND id_product IS NOT NULL")
 @Setter
 @Getter
 @IdClass(DeliveriesPK.class)
 @Table(name = "deliveries")
 @Data
 public class Deliveries {
-
     @Id
     @GenericGenerator(name = " ", strategy = "increment")
     @Column(name = "id_contract")
@@ -39,13 +37,6 @@ public class Deliveries {
     private Integer planDelivery;
     @Column(name = "price_unit")
     private Double priceUnit;
-    /*
-    @JoinColumns({
-        @JoinColumn(name = "id_contract"),
-        @JoinColumn(name = "id_product")
-    })
-
-     */
     @JsonIgnore
     @OneToMany(mappedBy = "deliveries")
     public List<Accounting_deliveries> accounting_deliveries;
@@ -54,12 +45,10 @@ public class Deliveries {
     public DeliveriesPK getDeliveriesPKId() {
         return new DeliveriesPK(idContract, idProduct);
     }
-
     public void setDeliveriesPKId(DeliveriesPK deliveriesPK) {
         this.idContract = deliveriesPK.getIdContract();
         this.idProduct = deliveriesPK.getIdProduct();
     }
-
     public Deliveries(Long idProduct, String unit, LocalDate startDate, LocalDate endDate, Integer planDelivery, Double price_unit) {
         this.idProduct = idProduct;
         this.unit = unit;
@@ -68,7 +57,6 @@ public class Deliveries {
         this.planDelivery = planDelivery;
         this.priceUnit = price_unit;
     }
-
     public static Deliveries fromDTO(final DeliveriesRequest deliveriesRequest) {
         Deliveries deliveries = new Deliveries();
         deliveries.setIdProduct(deliveriesRequest.getIdProduct());

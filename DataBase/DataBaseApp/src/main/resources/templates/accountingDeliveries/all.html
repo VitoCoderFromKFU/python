@@ -3,23 +3,44 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Accounting deliveries</title>
+    <link rel="stylesheet" href="../style.css">
+    <form th:action="@{/}">
+        <button class="button-73" role="button">Home</button>
+    </form>
+    <form th:action="@{/accountingDeliveries}">
+        <button class="button-73" role="button">Accounting Deliveries</button>
+    </form>
+
 </head>
 <body>
-<h1>head 1</h1>
-<br>
-<h3>Head 3</h3>
-<br/>
-<table border="1">
+<h1>Accounting Deliveries</h1>
+<table class="container">
+    <thead>
     <tr>
-        <td>ID document on admission</td>
-        <td>ID storage</td>
-        <td>ID contract</td>
-        <td>ID product</td>
-        <td>Unit</td>
-        <td>Count products</td>
-        <td>Date of admission</td>
+        <th>
+            <h1>ID document on admission</h1>
+        </th>
+        <th>
+            <h1>ID storage</h1>
+        </th>
+        <th>
+            <h1>ID contract</h1>
+        </th>
+        <th>
+            <h1>ID product</h1>
+        </th>
+        <th>
+            <h1>Unit</h1>
+        </th>
+        <th>
+            <h1>Count products</h1>
+        </th>
+        <th>
+            <h1>Date of admission</h1>
+        </th>
     </tr>
+    </thead>
     <tr th:each="ad:${adList}">
         <td th:text="${ad.idDocumentOnAdmission}">ID document on admission</td>
         <td th:text="${ad.idStorage}">ID storage</td>
@@ -30,7 +51,8 @@
         <td th:text="${ad.dateOfAdmission}">Date of admission</td>
     </tr>
 </table>
-<a th:href="@{/accountingDeliveries}">AccountingDeliveries</a>
-<a th:href="@{/}">Home</a>
+
+
+
 </body>
 </html>

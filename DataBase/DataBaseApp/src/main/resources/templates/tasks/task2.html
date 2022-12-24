@@ -4,21 +4,38 @@
 <head>
     <meta charset="ISO-8859-1">
     <title>TASK 2</title>
+    <link rel="stylesheet" href="../style.css">
+    <form th:action="@{/}">
+        <button class="button-73" role="button">Home</button>
+    </form>
+    <form th:action="@{../tasks}">
+        <button class="button-73" role="button">Tasks</button>
+    </form>
+
 </head>
 
 <body>
-<h1>head 1</h1>
-<br>
-<h3>Head 3</h3>
-<br/>
-<table border="1">
+<h1>Task 2</h1>
+<table class="container">
+    <thead>
     <tr>
-        <td>ID contract</td>
-        <td>ID product</td>
-        <td>Plan delivery</td>
-        <td>End date</td>
-        <td>general count this detail in this contract</td>
+        <th>
+            <h1>ID contract</h1>
+        </th>
+        <th>
+            <h1>ID product</h1>
+        </th>
+        <th>
+            <h1>Plan delivery</h1>
+        </th>
+        <th>
+            <h1>End date</h1>
+        </th>
+        <th>
+            <h1>general count this detail in this contract</h1>
+        </th>
     </tr>
+    </thead>
     <tr th:each="t:${task2List}">
         <td th:text="${t.idContract}">ID contract</td>
         <td th:text="${t.idProduct}">ID product</td>
@@ -27,7 +44,6 @@
         <td th:text="${t.sum}">General count this detail in this contract</td>
     </tr>
 </table>
-<a th:href="@{../tasks}">Tasks</a>
-<a th:href="@{/}">Home</a>
+
 </body>
 </html>

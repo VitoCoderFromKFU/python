@@ -8,7 +8,7 @@ import java.awt.geom.Ellipse2D;
 import java.awt.geom.RoundRectangle2D;
 
 
-public class TvWithButton extends JFrame implements ActionListener {
+public class TvWithButton extends JFrame {
     ChangeImage1 changeImage1 = new ChangeImage1();
     ChangeImage2 changeImage2 = new ChangeImage2();
     JPanel cardPanel = new JPanel();
@@ -22,7 +22,28 @@ public class TvWithButton extends JFrame implements ActionListener {
         buttons.setBackground(new Color(190, 0, 0));
         buttons.setLayout(new FlowLayout(FlowLayout.CENTER));
         buttons.add(button);
-        button.addActionListener(this);
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                if (e.getSource() == button) {
+                    if (flag) {
+                        //cardPanel.remove(changeImage);
+                        cardPanel.add(changeImage1);
+                        cardPanel.setBackground(new Color(0, 93, 124, 255));
+
+
+                        flag = false;
+                    } else {
+                        //cardPanel.remove(changeImage);
+                        cardPanel.add(changeImage2);
+                        cardPanel.setBackground(new Color(176, 107, 3));
+                        flag = true;
+                    }
+
+                }
+            }
+        });
         getContentPane().add("Center", cardPanel);
         getContentPane().add("South", buttons);
         setBounds(0, 0, 1420, 1000);
@@ -38,26 +59,7 @@ public class TvWithButton extends JFrame implements ActionListener {
 
     boolean flag = true;
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
 
-        if (e.getSource() == button) {
-            if (flag) {
-                //cardPanel.remove(changeImage);
-                cardPanel.add(changeImage1);
-                cardPanel.setBackground(new Color(0, 93, 124, 255));
-
-
-                flag = false;
-            } else {
-                //cardPanel.remove(changeImage);
-                cardPanel.add(changeImage2);
-                cardPanel.setBackground(new Color(176, 107, 3));
-                flag = true;
-            }
-
-        }
-    }
 
     static class ChangeImage1 extends JComponent {
         public void paintComponent(Graphics graphics) {

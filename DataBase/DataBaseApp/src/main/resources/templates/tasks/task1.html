@@ -1,27 +1,51 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org" lang="eng">
 <head>
-    <meta charset="ISO-8859-1">
-    <title>TASK 1</title>
+    <meta charset="UTF-8">
+    <title>Task 1</title>
+    <link rel="stylesheet" href="../style.css">
+    <form th:action="@{/}">
+        <button class="button-73" role="button">Home</button>
+    </form>
+
+    <form th:action="@{../tasks}">
+        <button class="button-73" role="button">Tasks</button>
+    </form>
+
 </head>
 
 <body>
-<h1>head 1</h1>
-<br>
-<h3>Head 3</h3>
-<br/>
-<table border="1">
+<h1>Task 1</h1>
+<table class="container">
+    <thead>
     <tr>
-        <td>ID storage</td>
-        <td>ID product</td>
-        <td>ID document on admission</td>
-        <td>Date of admission</td>
-        <td>Count products</td>
-        <td>ID contract</td>
-        <td>Plan delivery</td>
-        <td>End date</td>
+        <th>
+            <h1>ID storage</h1>
+        </th>
+        <th>
+            <h1>ID product</h1>
+        </th>
+        <th>
+            <h1>ID document on admission</h1>
+        </th>
+        <th>
+            <h1>Date of admission</h1>
+        </th>
+        <th>
+            <h1>Count products</h1>
+        </th>
+        <th>
+            <h1>ID contract</h1>
+        </th>
+        <th>
+            <h1>Plan delivery</h1>
+        </th>
+        <th>
+            <h1>End date</h1>
+        </th>
     </tr>
+    </thead>
     <tr th:each="t:${t1List}">
         <td th:text="${t.idStorage}">ID storage</td>
         <td th:text="${t.idProduct}">ID product</td>
@@ -33,7 +57,6 @@
         <td th:text="${t.endDate}">End date</td>
     </tr>
 </table>
-<a th:href="@{../tasks}">Tasks</a>
-<a th:href="@{/}">Home</a>
+
 </body>
 </html>

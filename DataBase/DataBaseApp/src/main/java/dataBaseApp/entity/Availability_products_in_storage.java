@@ -5,6 +5,7 @@ import dataBaseApp.dto.Availability_products_in_storageRequest;
 import dataBaseApp.pk.Availability_products_in_storagePK;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.Check;
 import org.hibernate.annotations.ColumnDefault;
 
 import java.time.LocalDate;
@@ -18,9 +19,7 @@ import java.util.List;
 @IdClass(Availability_products_in_storagePK.class)
 @Data
 @Table(name = "availability_products_in_storage")
-//@Check(constraints = "id_storage IS NOT NULL AND id_product IS NOT NULL")
 public class Availability_products_in_storage {
-
 
     @Id
     @Column(name = "id_storage")
@@ -30,27 +29,20 @@ public class Availability_products_in_storage {
     private Long idProduct;
     @ColumnDefault("items")
     private String unit = "items";
-
-    //@Column(columnDefinition = "int default 0")
     @Column(name = "count_in_storage")
     private Integer countInStorage = 0;
     @Column(name = "date_last_operation")
     private LocalDate dateLastOperation;
-
     @JsonIgnore
     @OneToMany(mappedBy = "availability_products_in_storage")
     public List<Accounting_deliveries> accounting_deliveries;
-
 
     public Availability_products_in_storage(Long idStorage, Long id_product, String unit, Integer countInStorage) {
         this.idStorage = idStorage;
         this.idProduct = id_product;
         this.unit = unit;
         this.countInStorage = countInStorage;
-        //this.date_last_operation TODO: check work trigger in mysql if not then need write query in there
-
     }
-
     public Availability_products_in_storagePK getId() {
         return new Availability_products_in_storagePK(idStorage, idProduct);
     }
@@ -69,6 +61,4 @@ public class Availability_products_in_storage {
         storage.setDateLastOperation(storageRequest.getDateLastOperation());
         return storage;
     }
-
-
 }

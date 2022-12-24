@@ -1,32 +1,44 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
+
+<!--https://codepen.io/pablorgarcia/pen/ARdVgx-->
 <head>
     <meta charset="UTF-8">
     <title>All apis</title>
+    <link rel="stylesheet" href="../style.css">
+    <form th:action="@{/}">
+        <button class="button-73" role="button">Home</button>
+    </form>
+    <form th:action="@{/availabilityProductsInStorage}">
+        <button class="button-73" role="button">Availability products in storage</button>
+    </form>`
 </head>
 
-<!--
-id_storage BIGINT NOT NULL ,#номер склада
-    id_product BIGINT NOT NULL, #код изделия (детали);
-    unit VARCHAR(255) DEFAULT "items", #единица измерения;
-    count_in_storage INT DEFAULT 0,#количество, имеющееся на складе;
-    date_last_operation DATE, #дата последней операции.
--->
-
 <body>
-<h1>head 1</h1>
-<br>
-<h3>Head 3</h3>
-<br/>
-<table border="1">
+<h1>Availability products in storage</h1>
+
+<table class="container">
+    <thead>
     <tr>
-        <td>ID storage</td>
-        <td>ID product</td>
-        <td>Unit</td>
-        <td>Count in storage</td>
-        <td>Date last operation</td>
+        <th>
+            <h1>ID storage</h1>
+        </th>
+        <th>
+            <h1>ID product</h1>
+        </th>
+        <th>
+            <h1>Unit</h1>
+        </th>
+        <th>
+            <h1>Count in storage</h1>
+        </th>
+        <th>
+            <h1>Date last operation</h1>
+        </th>
+
     </tr>
+    </thead>
     <tr th:each="a:${apis}">
         <td th:text="${a.idStorage}">ID storage</td>
         <td th:text="${a.idProduct}">ID product</td>
@@ -35,7 +47,6 @@ id_storage BIGINT NOT NULL ,#номер склада
         <td th:text="${a.dateLastOperation}">Date last operation</td>
     </tr>
 </table>
-<a th:href="@{/availabilityProductsInStorage}">Availability products in storage</a>
-<a th:href="@{/}">Home</a>
+
 </body>
 </html>

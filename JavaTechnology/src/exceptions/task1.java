@@ -38,7 +38,7 @@ public class task1 {
                 } else if (n < min) {
                     throw new LowerException();
                 }
-            } catch (BiggerException bexc) {
+            } catch (BiggerException bexc ) {
                 System.out.println(bexc.toString());
             } catch (LowerException lexc) {
                 System.out.println(lexc.toString());

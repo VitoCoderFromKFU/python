@@ -4,11 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Accounting deliveries</title>
+    <link rel="stylesheet" href="../style.css">
+    <form th:action="@{/}">
+        <button class="button-73" role="button">Home</button>
+    </form>
+    <form th:action="@{/accountingDeliveries/all}">
+        <button class="button-73" role="button">Get all accounting deliveries</button>
+    </form>
+    <form th:action="@{/accountingDeliveries/add}">
+        <button class="button-73" role="button">Add delivery in accounting deliveries</button>
+    </form>
 </head>
 <body>
-<a th:href="@{/accountingDeliveries/all}">Get all accounting deliveries</a>
-<br/>
-<a th:href="@{/accountingDeliveries/add}">Add delivery in accounting deliveries</a>
-<br/>
+
+
 </body>
 </html>

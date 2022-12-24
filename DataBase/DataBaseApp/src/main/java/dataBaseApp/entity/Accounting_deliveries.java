@@ -3,10 +3,7 @@ package dataBaseApp.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import dataBaseApp.dto.Accounting_deliveriesRequest;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
 
 import java.time.LocalDate;
@@ -29,32 +26,14 @@ public class Accounting_deliveries {
     private Long idStorage;
     @Column(name = "id_contract")
     private Long idContract;
-    //@Column(insertable=false, updatable=false)
     @Column(name = "id_product")
     private Long idProduct;
-
     @ColumnDefault("items")
     private String unit = "items";
-
     @Column(name = "count_products")
     private Integer countProducts;
     @Column(name = "date_of_admission")
     private LocalDate dateOfAdmission;
-/*
-    Accounting_deliveries(Long id_storage, Long id_contract, Long id_product, String unit, Integer count_products,
-                         LocalDate date_of_admission) {
-        this.id_storage = id_storage;
-        this.id_contract = id_contract;
-        this.id_product = id_product;
-        this.unit = unit;
-        this.count_products = count_products;
-        this.date_of_admission = date_of_admission;
-
-    }
-
- */
-
-
     @JsonIgnore
     @JoinColumns({
             @JoinColumn(name = "id_product", referencedColumnName = "id_product", updatable = false, insertable = false),
@@ -80,7 +59,6 @@ public class Accounting_deliveries {
         this.dateOfAdmission = dateOfAdmission;
         this.idStorage = idStorage;
     }
-
     public static Accounting_deliveries fromDTO(final Accounting_deliveriesRequest accountingDeliveriesRequest) {
         Accounting_deliveries accountingDeliveries = new Accounting_deliveries();
         accountingDeliveries.setIdStorage(accountingDeliveriesRequest.getIdStorage());
@@ -92,6 +70,4 @@ public class Accounting_deliveries {
         return accountingDeliveries;
 
     }
-
-
 }

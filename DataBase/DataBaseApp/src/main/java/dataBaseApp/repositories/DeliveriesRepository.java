@@ -9,10 +9,4 @@ import java.util.List;
 
 @Repository
 public interface DeliveriesRepository extends JpaRepository<Deliveries, DeliveriesPK> {
-
-    List<Deliveries> findAllByIdContract(Long id_contract);
-
-    List<Deliveries> findAllByIdProduct(Long id_product);
-
-
 }

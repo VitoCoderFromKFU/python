@@ -3,12 +3,23 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>Availability products in storage</title>
+    <link rel="stylesheet" href="../style.css">
+    <form th:action="@{/}">
+        <button class="button-73" role="button">Home</button>
+    </form>
+    <form th:action="@{/availabilityProductsInStorage/all}">
+        <button class="button-73" role="button">Get all availability products in storage</button>
+    </form>
+    <form th:action="@{/availabilityProductsInStorage/add}">
+        <button class="button-73" role="button">Add product in storage</button>
+    </form>
 </head>
 <body>
-<a th:href="@{/availabilityProductsInStorage/all}">Get all availability products in storage</a>
-<br/>
-<a th:href="@{/availabilityProductsInStorage/add}">Add product in storage</a>
+
+
+
+
 <br/>
 </body>
 </html>
